@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaraYuke</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=refresh" />
+</head>
+
+<body>
+
+    <header>
+        <div id="int-nav">
+            <div id="logo">
+                <h1>karayuke</h1>
+            </div>
+
+            <div id="nav-bar">
+                <a href="">Auteur</a>    
+                <a href="">Titre</a>    
+                <a href="">API ?</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="recherche">
+        <div id="page_1">
+            <h2 class="question">Quelle chanson cherchez-vous ?</h2>
+            <div class="input">
+                <input id="titre" type="text" required autocomplete="off" autofocus>
+                <label for="titre">Titre...</label>
+            </div>
+            <button id="validation-page-1">Valider</button>
+        </div>
+
+        <div id="page_2">
+            <h2 class="question">Qui est le créateur de cette chanson ?</h2>
+            <div class="input">
+                <input id="nom-auteur" type="text" required autocomplete="off" autofocus>
+                <label for="nom-auteur">Nom de l'auteur...</label>
+            </div>
+            <button id="validation-page-2">Valider</button>
+        </div>
+    </section>
+
+    <section id="resultat">
+
+        <div id="conteneur-resultat" style="display:none;">
+            <a href="http://127.0.0.1:5000" id="recharge">
+                <span class="material-symbols-outlined">refresh</span>
+            </a>
+            <div id="conteneur-youtube"></div>
+            <div id="conteneur-paroles"></div>
+        </div>
+
+
+    </section>
+    
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400..800&display=swap');
+
+
+/* Palette de couleurs */
+:root {
+    --primaire: #4D8FEB;
+    --bordures: #4452CE;
+    --noir: #150D32;
+    --blanc: #DFE2FF;
+    --liens:#4a0087 ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body
+{
+  background-color: var(--noir);
+}
+
+.no-scroll {
+    overflow: hidden; 
+}
+
+
+
+
+
+
+/* nav-bar header ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+header
+{
+    margin-top: 1lvh;
+    height: 12.5vh;
+    width: 100%;
+    max-height: 64px ;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    background-color: transparent;
+}
+
+    #int-nav
+    {
+        height: 85%;
+        width: 70%;
+        background-color: var(--primaire);
+        border-radius: 50px;
+        border: solid 1px var(--bordures) ;
+        box-shadow: 0px 0px 6px var(--bordures);
+        display: flex;
+            justify-content: center;
+            align-items: center;    
+    }
+
+    #logo
+    {
+        width: 50%;
+    }
+
+    #logo > h1
+    {
+        font-family: Bebas Neue , sans-serif;
+        text-align: center;
+        color: var(--noir);
+    }
+
+    #nav-bar
+    {
+        width: 50%;
+        display:flex;
+            justify-content: space-around;
+    }
+
+    #nav-bar a
+    {
+        font-family: "montserrat" , sans-serif;
+        font-weight: 420;
+        text-decoration: none;
+        color: var(--liens);
+        display: inline-block;
+        position: relative;
+    }
+
+/* animation sur "Auteur"  "Titre"  "API ?" */
+        #nav-bar a::after 
+        {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            border-radius: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bordures);
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        #nav-bar a:hover::after 
+        {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+
+/* fin  nav-bar header+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+
+/* Recherche----------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+#recherche
+{
+    width: 100%;
+    height: 87.5vh;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+    #page_1 , #page_2
+    {
+        position: absolute;
+        
+        min-height: 360px;
+        min-width: 650px;
+        background-color: var(--primaire);
+        border: solid 1px var(--bordures) ;
+        box-shadow: 0px 0px 8px var(--bordures);
+        border-radius: 24px;
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+    }
+
+    .question
+    {
+        text-align: center;
+        font-weight: 800;
+        font-size: 26px;
+        color: var(--noir);
+    }
+
+    #validation-page-1,
+    #validation-page-2
+    {
+        background-color: var(--liens);
+        color: var(--blanc);
+        width: 80px;
+        height: 40px;
+        border-radius: 20px;
+        border: 0;
+        transition: 0.3s;
+        font-family: "Montserrat" , sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    #validation-page-1:hover,
+    #validation-page-2:hover
+    {   
+        box-shadow: 0 0 5px black;
+    }
+
+    /* animation page */
+
+    #page_1
+    {
+        z-index: 2;
+    }
+    #page_2
+    {
+        z-index: 1;
+    }
+
+    .animation_page_1
+    {
+        animation: page1 1s  forwards ease-out;
+    }
+
+    @keyframes page1 {
+        50%{
+            z-index: 0;
+            scale: 1.25;
+            opacity: 0;
+        }
+        100%{
+            z-index: 0;
+            opacity: 0;
+            scale: 0;
+            filter: blur(5px);
+        }
+        
+    }
+
+    .animation_page_2
+    {
+        z-index: 2;
+        animation: page2 0.25S forwards;
+    }
+
+    @keyframes page2 {
+        0%{
+            filter: blur(12px);
+        }
+        100%{
+            filter: blur(0);
+        }
+        
+    }
+
+/* fin recherche ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+
+/* input -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.input {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 2em 0 2em 0;
+  max-width: 300px;
+  position: relative;
+}
+
+    .input input {
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid var(--bordures);
+    background-color: transparent;
+    border-radius: 25px;
+    width: 100%;
+    }
+
+    .input label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: var(--blanc);
+    }
+
+    .input :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    background-color: var(--primaire);
+    }
+
+    .inputGroup :is(input:focus, input:valid) {
+    border-color: var(--bordures);
+    }
+/* fin input +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+/* resultat----------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Conteneur pour la vidéo et les paroles */
+#conteneur-resultat {
+    display: grid; 
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 5% 95%; 
+    gap: 0px 0px; 
+    height: 100vh;
+    width: 100%;
+}
+
+/* Style pour la vidéo YouTube */
+#conteneur-youtube {
+    grid-area: 1 / 1 / 3 / 2; 
+    /* width: 50%; */
+    background-color: var(--noir);
+}
+
+/* Style pour les paroles */
+#conteneur-paroles {
+    grid-area: 1 / 2 / 3 / 3;
+    /* width: 50%; */
+    padding: 20px;
+    color: var(--blanc);
+    background-color: var(--bordures);
+    overflow-y: auto;
+    white-space: pre-wrap; /* Pour conserver le formatage des paroles */
+    line-height: 20px;
+    font-size: 20px bold ;
+    font-family: "Roboto Mono", sans-serif;
+}
+
+
+.material-symbols-outlined 
+{ 
+    transition: 0.4s;
+    text-align: center;
+    color: var(--noir);
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.material-symbols-outlined:hover
+{
+    rotate: 180deg;
+}
+
+#recharge
+{
+    text-decoration: none;
+    background-color: var(--primaire);
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    transition: 0.4s;
+    border-radius: 50%;
+    margin-top: 6px;
+    transform: translate(-50% , 0);
+    right: 10px;
+    position: absolute;
+}
+
+#recharge:hover
+{
+    scale: 1.4;
+    translate: 0 5px;
+}
+
+
+/* fin resultat +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
